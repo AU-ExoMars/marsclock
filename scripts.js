@@ -19,7 +19,7 @@ function startTime() {
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = Ls
+  document.getElementById('test').innerHTML = eotDeg(Ls,eqocentre)
   
   // make time tick
   setTimeout(startTime, 1000);
@@ -63,6 +63,16 @@ function perturbers(dt) {
 function eoc(dt,M,pbs) {
   //ν - M = (10.691° + 3.0° × 10-7 ΔtJ2000) sin M + 0.623° sin 2M + 0.050° sin 3M + 0.005° sin 4M + 0.0005° sin 5M + PBS
   return (10.691 + 3.0E-7 * dt) * sin(M) + 0.623 * sin(2 * M) + 0.050 * sin(3 * M) + 0.005 * sin(4 * M) + 0.0005 * sin(5 * M) + pbs
+}
+
+function eotDeg(ls,eoc){
+  // 2.861° sin 2Ls - 0.071° sin 4Ls + 0.002° sin 6Ls - (ν - M)
+  return 2.861 * sin(2*ls) - 0.071 * sin(4*ls) + 0.02 * sin(6*ls) - eoc
+}
+
+function eotHrs(eotDeg){
+  // Multiply by (24 h / 360°) = (1 h / 15°) to obtain the result in hours.
+  return eotDeg * (24/360)
 }
 
 function cos(deg) {
