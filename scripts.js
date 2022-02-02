@@ -15,10 +15,11 @@ function startTime() {
   aFMS = alphaFMS(dtj2000)
   pbs = perturbers(dtj2000)
   eqocentre = eoc(dtj2000,M,pbs)
+  Ls = aFMS + eqocentre
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = eqocentre
+  document.getElementById('test').innerHTML = Ls
   
   // make time tick
   setTimeout(startTime, 1000);
