@@ -14,10 +14,11 @@ function startTime() {
   M = marsMeanAnomaly(dtj2000)
   aFMS = alphaFMS(dtj2000)
   pbs = perturbers(dtj2000)
+  eqocentre = eoc(dtj2000,M,pbs)
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = pbs
+  document.getElementById('test').innerHTML = eqocentre
   
   // make time tick
   setTimeout(startTime, 1000);
@@ -56,6 +57,11 @@ function perturbers(dt) {
     0.0021 * cos((0.985626 * dt /  2.1354) +  15.704) +
     0.0020 * cos((0.985626 * dt /  2.4694) +  95.528) +
     0.0018 * cos((0.985626 * dt / 32.8493) +  49.095)
+}
+
+function eoc(dt,M,pbs) {
+  //ν - M = (10.691° + 3.0° × 10-7 ΔtJ2000) sin M + 0.623° sin 2M + 0.050° sin 3M + 0.005° sin 4M + 0.0005° sin 5M + PBS
+  return (10.691 + 3.0E-7 * dt) * sin(M) + 0.623 * sin(2 * M) + 0.050 * sin(3 * M) + 0.005 * sin(4 * M) + 0.0005 * sin(5 * M) + pbs
 }
 
 function cos(deg) {
