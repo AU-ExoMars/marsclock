@@ -12,13 +12,10 @@ function startTime() {
   dtj2000 = dtJ2000(jdtt);
   M = marsMeanAnomaly(dtj2000)
   aFMS = alphaFMS(dtj2000)
+  
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('JDut').innerHTML = jdut
-  document.getElementById('JDtt').innerHTML = jdtt
-  document.getElementById('dt').innerHTML = dtj2000
-  document.getElementById('M').innerHTML = M
-  document.getElementById('afms').innerHTML = aFMS
+  document.getElementById('test').innerHTML = aFMS
   
   // make time tick
   setTimeout(startTime, 1000);
