@@ -13,10 +13,11 @@ function startTime() {
   dtj2000 = dtJ2000(jdtt);
   M = marsMeanAnomaly(dtj2000)
   aFMS = alphaFMS(dtj2000)
+  pbs = perturbers(dtj2000)
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = aFMS
+  document.getElementById('test').innerHTML = pbs
   
   // make time tick
   setTimeout(startTime, 1000);
@@ -48,7 +49,6 @@ function alphaFMS(dt){
 }
 
 function perturbers(dt) {
-  //PBS = Σ(i=1,7) Ai cos [ (0.985626° ΔtJ2000 / τi) + φi]
   return 0.0071 * cos((0.985626 * dt /  2.2353) +  49.409) +
     0.0057 * cos((0.985626 * dt /  2.7543) + 168.173) +
     0.0039 * cos((0.985626 * dt /  1.1177) + 191.837) +
