@@ -14,7 +14,7 @@ function startTime() {
   daysUntilLaunch = Math.floor((launchwindowopen.getTime() - date.getTime()) / (1000 * 3600 * 24))
   daysUntilLanding = Math.floor((landing.getTime() - date.getTime()) / (1000 * 3600 * 24))
   
-  dateTimeCalcs(today);
+  dateTimeCalcs();
   
   document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
   document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
@@ -55,11 +55,12 @@ function startTimeDebug() {
   setTimeout(startTimeDebug, 1000);
 }
 
-function dateTimeCalcs(date){
+function dateTimeCalcs(){
+  const today = new Date();
   const ut = new Date(0);
   
   // calls
-  jdut = julianDate(date.getTime());
+  jdut = julianDate(today.getTime());
   jdtt = julianTT(jdut);
   dtj2000 = dtJ2000(jdtt);
   mma = marsMeanAnomaly(dtj2000)
