@@ -1,4 +1,11 @@
 function startTime() {
+  const today = new Date();
+  const ut = new Date(0);
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
   dateTimeCalcs();
   
   document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
