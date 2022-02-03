@@ -87,7 +87,7 @@ function startTimeDebug() {
   document.getElementById("msd").innerHTML = "msd = " + msd;
   
   // make time tick
-  setTimeout(startTime, 1000);
+  setTimeout(startTimeDebug, 1000);
 }
 
 function checkTime(i) {
