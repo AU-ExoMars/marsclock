@@ -34,7 +34,7 @@ function startTime() {
   document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
   document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
   document.getElementById('ltstOP').innerHTML = h_to_hms(ltst);
-  document.getElementById('test').innerHTML = daysUntilLaunch + " days until launch" //h_to_hms(lmst);
+  document.getElementById('test').innerHTML = daysUntilLanding + " days until mission starts" //h_to_hms(lmst);
   
   // make time tick
   setTimeout(startTime, 1000);
