@@ -26,7 +26,7 @@ function startTimeDebug() {
   document.getElementById("mstPM").innerHTML = "mstPM = " + mstPM;
   document.getElementById("lmst").innerHTML = "lmst = " + lmst + " = " + h_to_hms(lmst);
   document.getElementById("ltst").innerHTML = "ltst = " + ltst + " = " + h_to_hms(ltst);
-  document.getElementById("msd").innerHTML = "msd = " + msd + " = " + h_to_hms(msd);
+  document.getElementById("msd").innerHTML = "msd = " + msd.toFixed(5) + " = " + h_to_hms(msd);
   
   // make time tick
   setTimeout(startTimeDebug, 1000);
