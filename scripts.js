@@ -20,20 +20,20 @@ function startTime() {
 function startTimeDebug() {
   dateTimeCalcs();
   
-  document.getElementById("jdut").innerHTML = "jdut = " + jdut;
-  document.getElementById("jdtt").innerHTML = "jdtt = " + jdtt;
-  document.getElementById("dtj2000").innerHTML = "dtj2000 = " + dtj2000;
-  document.getElementById("mma").innerHTML = "mma = " + mma;
-  document.getElementById("aFMS").innerHTML = "aFMS = " + aFMS;
-  document.getElementById("pbs").innerHTML = "pbs = " + pbs;
-  document.getElementById("eqocentre").innerHTML = "eqocentre = " + eqocentre;
-  document.getElementById("Ls").innerHTML = "Ls = " + Ls;
-  document.getElementById("eotdeg").innerHTML = "eotdeg = " + eotdeg;
-  document.getElementById("eothrs").innerHTML = "eothrs = " + eothrs + " = " + h_to_hms(eothrs);
-  document.getElementById("mstPM").innerHTML = "mstPM = " + mstPM;
-  document.getElementById("lmst").innerHTML = "lmst = " + lmst + " = " + h_to_hms(lmst);
-  document.getElementById("ltst").innerHTML = "ltst = " + ltst + " = " + h_to_hms(ltst);
-  document.getElementById("msd").innerHTML = "msd = " + msd.toFixed(5) + " = " + h_to_hms(msd);
+  document.getElementById("jdut").innerHTML = "jdut = " + jdut.toFixed(5);
+  document.getElementById("jdtt").innerHTML = "jdtt = " + jdtt.toFixed(5);
+  document.getElementById("dtj2000").innerHTML = "dtj2000 = " + dtj2000.toFixed(5);
+  document.getElementById("mma").innerHTML = "mma = " + mma.toFixed(5);
+  document.getElementById("aFMS").innerHTML = "aFMS = " + aFMS.toFixed(5);
+  document.getElementById("pbs").innerHTML = "pbs = " + pbs.toFixed(5);
+  document.getElementById("eqocentre").innerHTML = "eqocentre = " + eqocentre.toFixed(5);
+  document.getElementById("Ls").innerHTML = "Ls = " + Ls.toFixed(5);
+  document.getElementById("eotdeg").innerHTML = "eotdeg = " + eotdeg.toFixed(5);
+  document.getElementById("eothrs").innerHTML = "eothrs = " + eothrs.toFixed(5) + " = " + h_to_hms(eothrs);
+  document.getElementById("mstPM").innerHTML = "mstPM = " + mstPM.toFixed(5);
+  document.getElementById("lmst").innerHTML = "lmst = " + lmst.toFixed(5) + " = " + h_to_hms(lmst);
+  document.getElementById("ltst").innerHTML = "ltst = " + ltst.toFixed(5) + " = " + h_to_hms(ltst);
+  document.getElementById("msd").innerHTML = "msd = " + msd.toFixed(5);
   
   // make time tick
   setTimeout(startTimeDebug, 1000);
