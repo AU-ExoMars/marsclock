@@ -24,6 +24,7 @@ function startTime() {
   // prints
   document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
   document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
+  document.getElementById('lmst').innerHTML = h_to_hms(ltstOP);
   document.getElementById('test').innerHTML = h_to_hms(lmst);
   
   // make time tick
