@@ -1,34 +1,5 @@
 function startTime() {
-  const today = new Date();
-  const ut = new Date(0);
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  
-  // dates
-  const launchwindowopen = new Date(2022, 09, 20);
-  const launchwindowclose = new Date(2022, 10, 01);
-  const landing = new Date(2023, 05, 10);
-  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - today.getTime()) / (1000 * 3600 * 24))
-  daysUntilLanding = Math.floor((landing.getTime() - today.getTime()) / (1000 * 3600 * 24))
-  
-  // calls
-  jdut = julianDate(today.getTime());
-  jdtt = julianTT(jdut);
-  dtj2000 = dtJ2000(jdtt);
-  mma = marsMeanAnomaly(dtj2000)
-  aFMS = alphaFMS(dtj2000)
-  pbs = perturbers(dtj2000)
-  eqocentre = eoc(dtj2000,mma,pbs)
-  Ls = aFMS + eqocentre
-  eotdeg = eotDeg(Ls,eqocentre)
-  eothrs = eotHrs(eotdeg)
-  mstPM = meanSolarTime(jdtt)
-  lmst = localMeanSolarTime(mstPM,24)
-  ltst = localTrueSolarTime(lmst,eotdeg)
-  msd = marsSolarDate(dtj2000)
+  dateTimeCalcs();
   
   document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
   document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
@@ -40,36 +11,7 @@ function startTime() {
 }
 
 function startTimeDebug() {
-  const today = new Date();
-  const ut = new Date(0);
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  
-  // dates
-  const launchwindowopen = new Date(2022, 09, 20);
-  const launchwindowclose = new Date(2022, 10, 01);
-  const landing = new Date(2023, 05, 10);
-  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - today.getTime()) / (1000 * 3600 * 24))
-  daysUntilLanding = Math.floor((landing.getTime() - today.getTime()) / (1000 * 3600 * 24))
-  
-  // calls
-  jdut = julianDate(today.getTime());
-  jdtt = julianTT(jdut);
-  dtj2000 = dtJ2000(jdtt);
-  mma = marsMeanAnomaly(dtj2000)
-  aFMS = alphaFMS(dtj2000)
-  pbs = perturbers(dtj2000)
-  eqocentre = eoc(dtj2000,mma,pbs)
-  Ls = aFMS + eqocentre
-  eotdeg = eotDeg(Ls,eqocentre)
-  eothrs = eotHrs(eotdeg)
-  mstPM = meanSolarTime(jdtt)
-  lmst = localMeanSolarTime(mstPM,24)
-  ltst = localTrueSolarTime(lmst,eotdeg)
-  msd = marsSolarDate(dtj2000)
+  dateTimeCalcs();
   
   document.getElementById("jdut").innerHTML = "jdut = " + jdut;
   document.getElementById("jdtt").innerHTML = "jdtt = " + jdtt;
@@ -88,6 +30,39 @@ function startTimeDebug() {
   
   // make time tick
   setTimeout(startTimeDebug, 1000);
+}
+
+function dateTimeCalcs(){
+  const today = new Date();
+  const ut = new Date(0);
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  
+  // dates
+  const launchwindowopen = new Date(2022, 09, 20);
+  const launchwindowclose = new Date(2022, 10, 01);
+  const landing = new Date(2023, 05, 10);
+  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - today.getTime()) / (1000 * 3600 * 24))
+  daysUntilLanding = Math.floor((landing.getTime() - today.getTime()) / (1000 * 3600 * 24))
+  
+  // calls
+  jdut = julianDate(today.getTime());
+  jdtt = julianTT(jdut);
+  dtj2000 = dtJ2000(jdtt);
+  mma = marsMeanAnomaly(dtj2000)
+  aFMS = alphaFMS(dtj2000)
+  pbs = perturbers(dtj2000)
+  eqocentre = eoc(dtj2000,mma,pbs)
+  Ls = aFMS + eqocentre
+  eotdeg = eotDeg(Ls,eqocentre)
+  eothrs = eotHrs(eotdeg)
+  mstPM = meanSolarTime(jdtt)
+  lmst = localMeanSolarTime(mstPM,24)
+  ltst = localTrueSolarTime(lmst,eotdeg)
+  msd = marsSolarDate(dtj2000)
 }
 
 function checkTime(i) {
