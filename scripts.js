@@ -22,7 +22,7 @@ function startTime() {
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = mstPM
+  document.getElementById('test').innerHTML = h_to_hms(mstPM)
   
   // make time tick
   setTimeout(startTime, 1000);
