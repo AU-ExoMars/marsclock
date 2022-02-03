@@ -11,15 +11,16 @@ function startTime() {
   jdut = julianDate(today.getTime());
   jdtt = julianTT(jdut);
   dtj2000 = dtJ2000(jdtt);
-  M = marsMeanAnomaly(dtj2000)
+  mma = marsMeanAnomaly(dtj2000)
   aFMS = alphaFMS(dtj2000)
   pbs = perturbers(dtj2000)
-  eqocentre = eoc(dtj2000,M,pbs)
+  eqocentre = eoc(dtj2000,mma,pbs)
   Ls = aFMS + eqocentre
+  eotdeg = eotDeg(Ls,eqocentre)
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = eotDeg(Ls,eqocentre)
+  document.getElementById('test').innerHTML = mma
   
   // make time tick
   setTimeout(startTime, 1000);
@@ -60,9 +61,9 @@ function perturbers(dt) {
     0.0018 * cos((0.985626 * dt / 32.8493) +  49.095)
 }
 
-function eoc(dt,M,pbs) {
+function eoc(dt,m,pbs) {
   //ν - M = (10.691° + 3.0° × 10-7 ΔtJ2000) sin M + 0.623° sin 2M + 0.050° sin 3M + 0.005° sin 4M + 0.0005° sin 5M + PBS
-  return (10.691 + 3.0E-7 * dt) * sin(M) + 0.623 * sin(2 * M) + 0.050 * sin(3 * M) + 0.005 * sin(4 * M) + 0.0005 * sin(5 * M) + pbs
+  return (10.691 + 3.0E-7 * dt) * sin(m) + 0.623 * sin(2 * m) + 0.050 * sin(3 * m) + 0.005 * sin(4 * m) + 0.0005 * sin(5 * m) + pbs
 }
 
 function eotDeg(ls,eoc){
