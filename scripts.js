@@ -22,11 +22,11 @@ function startTimeDebug() {
   document.getElementById("eqocentre").innerHTML = "eqocentre = " + eqocentre;
   document.getElementById("Ls").innerHTML = "Ls = " + Ls;
   document.getElementById("eotdeg").innerHTML = "eotdeg = " + eotdeg;
-  document.getElementById("eothrs").innerHTML = "eothrs = " + eothrs;
+  document.getElementById("eothrs").innerHTML = "eothrs = " + eothrs + " = " + h_to_hms(eothrs);
   document.getElementById("mstPM").innerHTML = "mstPM = " + mstPM;
   document.getElementById("lmst").innerHTML = "lmst = " + lmst + " = " + h_to_hms(lmst);
   document.getElementById("ltst").innerHTML = "ltst = " + ltst + " = " + h_to_hms(ltst);
-  document.getElementById("msd").innerHTML = "msd = " + msd;
+  document.getElementById("msd").innerHTML = "msd = " + msd + " = " + h_to_hms(msd);
   
   // make time tick
   setTimeout(startTimeDebug, 1000);
