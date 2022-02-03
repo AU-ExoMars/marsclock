@@ -18,22 +18,30 @@ function startTime() {
 }
 
 function startTimeDebug() {
+  const today = new Date();
+  const ut = new Date(0);
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
   dateTimeCalcs();
   
-  document.getElementById("jdut").innerHTML = "jdut = " + jdut.toFixed(5);
-  document.getElementById("jdtt").innerHTML = "jdtt = " + jdtt.toFixed(5);
-  document.getElementById("dtj2000").innerHTML = "dtj2000 = " + dtj2000.toFixed(5);
-  document.getElementById("mma").innerHTML = "mma = " + mma.toFixed(5);
-  document.getElementById("aFMS").innerHTML = "aFMS = " + aFMS.toFixed(5);
-  document.getElementById("pbs").innerHTML = "pbs = " + pbs.toFixed(5);
-  document.getElementById("eqocentre").innerHTML = "eqocentre = " + eqocentre.toFixed(5);
-  document.getElementById("Ls").innerHTML = "Ls = " + Ls.toFixed(5);
-  document.getElementById("eotdeg").innerHTML = "eotdeg = " + eotdeg.toFixed(5);
-  document.getElementById("eothrs").innerHTML = "eothrs = " + eothrs.toFixed(5) + " = " + h_to_hms(eothrs);
-  document.getElementById("mstPM").innerHTML = "mstPM = " + mstPM.toFixed(5);
-  document.getElementById("lmst").innerHTML = "lmst = " + lmst.toFixed(5) + " = " + h_to_hms(lmst);
-  document.getElementById("ltst").innerHTML = "ltst = " + ltst.toFixed(5) + " = " + h_to_hms(ltst);
-  document.getElementById("msd").innerHTML = "msd = " + msd.toFixed(5);
+  document.getElementById("utc").innerHTML = "A-1. Get a starting Earth time: " + h + ":" + m + ":" + s;
+  document.getElementById("jdut").innerHTML = "A-2. Convert millis to Julian Date (UT): jdut = " + jdut.toFixed(5);
+  document.getElementById("jdtt").innerHTML = "A-5. Determine Julian Date (TT): jdtt = " + jdtt.toFixed(5);
+  document.getElementById("dtj2000").innerHTML = "A-6. Determine time offset from J2000 epoch (TT): dtj2000 = " + dtj2000.toFixed(5);
+  document.getElementById("mma").innerHTML = "B-1. Determine Mars mean anomaly: mma = " + mma.toFixed(5);
+  document.getElementById("aFMS").innerHTML = "B-2. Determine angle of Fiction Mean Sun: aFMS = " + aFMS.toFixed(5);
+  document.getElementById("pbs").innerHTML = "B-3. Determine perturbers: pbs = " + pbs.toFixed(5);
+  document.getElementById("eqocentre").innerHTML = "B-4. Determine Equation of Center: eqocentre = " + eqocentre.toFixed(5);
+  document.getElementById("Ls").innerHTML = "B-5. Determine areocentric solar longitude: Ls = " + Ls.toFixed(5);
+  document.getElementById("eotdeg").innerHTML = "C-1a. Determine Equation of Time (degrees): eotdeg = " + eotdeg.toFixed(5);
+  document.getElementById("eothrs").innerHTML = "C-1b. Determine Equation of Time (hours): eothrs = " + eothrs.toFixed(5) + " = " + h_to_hms(eothrs);
+  document.getElementById("mstPM").innerHTML = "C-2. Determine Mean Solar Time at Mars's prime meridian, i.e., Airy Mean Time: mstPM = " + mstPM.toFixed(5) + " = " + h_to_hms(mstPM);
+  document.getElementById("lmst").innerHTML = "C-3. Determine Local Mean Solar Time: lmst = " + lmst.toFixed(5) + " = " + h_to_hms(lmst);
+  document.getElementById("ltst").innerHTML = "C-4. Determine Local True Solar Time: ltst = " + ltst.toFixed(5) + " = " + h_to_hms(ltst);
+  document.getElementById("msd").innerHTML = "Mars Sol Date (MSD): msd = " + msd.toFixed(5);
   
   // make time tick
   setTimeout(startTimeDebug, 1000);
