@@ -11,8 +11,8 @@ function startTime() {
   const launchwindowopen = new Date(2022, 09, 20);
   const launchwindowclose = new Date(2022, 10, 01);
   const landing = new Date(2023, 05, 10);
-  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - date.getTime()) / (1000 * 3600 * 24))
-  daysUntilLanding = Math.floor((landing.getTime() - date.getTime()) / (1000 * 3600 * 24))
+  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - today.getTime()) / (1000 * 3600 * 24))
+  daysUntilLanding = Math.floor((landing.getTime() - today.getTime()) / (1000 * 3600 * 24))
   
   dateTimeCalcs();
   
