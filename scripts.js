@@ -19,10 +19,11 @@ function startTime() {
   eotdeg = eotDeg(Ls,eqocentre)
   eothrs = eotHrs(eotdeg)
   mstPM = meanSolarTime(jdtt)
+  lmst = localMeanSolarTime(mstPM,24)
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = h_to_hms(mstPM)
+  document.getElementById('test').innerHTML = h_to_hms(lmst)
   
   // make time tick
   setTimeout(startTime, 1000);
@@ -81,6 +82,11 @@ function eotHrs(eotDeg){
 function meanSolarTime(jdtt){
   // MST = mod24 { 24 h × ( [(JDTT - 2451549.5) / 1.0274912517] + 44796.0 - 0.0009626 ) }
   return (24 * (((jdtt - 2451549.5) / 1.0274912517) + 44796.0 - 0.0009626)) % 24
+}
+
+function localMeanSolarTime(mst,long) {
+// LMST = mod24 { MST - Λ (24 h / 360°) } = mod24 { MST - Λ (1 h / 15°) }
+  return (mst - long * (24/360)) % 24
 }
 
 function cos(deg) {
