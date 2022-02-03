@@ -7,45 +7,56 @@
   </head>
   
 <body class="d-flex h-100 text-center text-white bg-dark" onload="startTime()">
-  <div class="container-fluid">
-    <div class="row">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Cover</h3>
       <h1 class="display-1">ExoMars</h1>
     </div>
-    <div class="row gy-5 align-items-center">
-      <div class="col">
-        <figure>
-          <blockquote class="blockquote">
-            <h1 id="earthUTC">00:00:00</h1>
-          </blockquote>
-          <figcaption class="blockquote-footer">
-            UTC (Earth)
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col">
-        <figure>
-          <blockquote class="blockquote">
-            <h1 id="marsCT">00:00:00</h1>
-          </blockquote>
-          <figcaption class="blockquote-footer">
-            MTC (Mars)
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col">
-        <figure>
-          <blockquote class="blockquote">
-            <h1 id="ltstOP">00:00:00</h1>
-          </blockquote>
-          <figcaption class="blockquote-footer">
-            LTST Oxia Planum
-          </figcaption>
-        </figure>
-      </div>
-    </div>
+  </header>
+
+  <main class="px-3">
     <div class="row">
-      <h2 id="test"></h2>
-    </div>
+      <div class="col">
+          <figure>
+            <blockquote class="blockquote">
+              <h1 id="earthUTC">00:00:00</h1>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              UTC (Earth)
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col">
+          <figure>
+            <blockquote class="blockquote">
+              <h1 id="marsCT">00:00:00</h1>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              MTC (Mars)
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col">
+          <figure>
+            <blockquote class="blockquote">
+              <h1 id="ltstOP">00:00:00</h1>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              LTST Oxia Planum
+            </figcaption>
+          </figure>
+        </div>
+        <div class="row">
+          <h2 id="test"></h2>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+      <p>Footer</p>
+    </footer>
   </div>
+  
 </body>
 </html>
