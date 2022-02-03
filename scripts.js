@@ -30,6 +30,62 @@ function startTime() {
   ltst = localTrueSolarTime(lmst,eotdeg)
   msd = marsSolarDate(dtj2000)
   
+  document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
+  document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
+  document.getElementById('ltstOP').innerHTML = h_to_hms(ltst);
+  document.getElementById('test').innerHTML = daysUntilLanding + " days until mission starts"
+  
+  // make time tick
+  setTimeout(startTime, 1000);
+}
+
+function startTimeDebug() {
+  const today = new Date();
+  const ut = new Date(0);
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  
+  // dates
+  const launchwindowopen = new Date(2022, 09, 20);
+  const launchwindowclose = new Date(2022, 10, 01);
+  const landing = new Date(2023, 05, 10);
+  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - today.getTime()) / (1000 * 3600 * 24))
+  daysUntilLanding = Math.floor((landing.getTime() - today.getTime()) / (1000 * 3600 * 24))
+  
+  // calls
+  jdut = julianDate(today.getTime());
+  jdtt = julianTT(jdut);
+  dtj2000 = dtJ2000(jdtt);
+  mma = marsMeanAnomaly(dtj2000)
+  aFMS = alphaFMS(dtj2000)
+  pbs = perturbers(dtj2000)
+  eqocentre = eoc(dtj2000,mma,pbs)
+  Ls = aFMS + eqocentre
+  eotdeg = eotDeg(Ls,eqocentre)
+  eothrs = eotHrs(eotdeg)
+  mstPM = meanSolarTime(jdtt)
+  lmst = localMeanSolarTime(mstPM,24)
+  ltst = localTrueSolarTime(lmst,eotdeg)
+  msd = marsSolarDate(dtj2000)
+  
+  document.getElementById("jdut").innerHTML = "jdut = " + jdut;
+  document.getElementById("jdtt").innerHTML = "jdtt = " + jdtt;
+  document.getElementById("dtj2000").innerHTML = "dtj2000 = " + dtj2000;
+  document.getElementById("mma").innerHTML = "mma = " + mma;
+  document.getElementById("aFMS").innerHTML = "aFMS = " + aFMS;
+  document.getElementById("pbs").innerHTML = "pbs = " + pbs;
+  document.getElementById("eqocentre").innerHTML = "eqocentre = " + eqocentre;
+  document.getElementById("Ls").innerHTML = "Ls = " + Ls;
+  document.getElementById("eotdeg").innerHTML = "eotdeg = " + eotdeg;
+  document.getElementById("eothrs").innerHTML = "eothrs = " + eothrs;
+  document.getElementById("mstPM").innerHTML = "mstPM = " + mstPM;
+  document.getElementById("lmst").innerHTML = "lmst = " + lmst;
+  document.getElementById("ltst").innerHTML = "ltst = " + ltst;
+  document.getElementById("msd").innerHTML = "msd = " + msd;
+  
   // make time tick
   setTimeout(startTime, 1000);
 }
