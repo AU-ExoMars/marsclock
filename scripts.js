@@ -21,6 +21,7 @@ function startTime() {
   mstPM = meanSolarTime(jdtt)
   lmst = localMeanSolarTime(mstPM,24)
   ltst = localTrueSolarTime(lmst,eotdeg)
+  msd = marsSolarDate(dtj2000)
   
   // prints
   document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
@@ -95,6 +96,10 @@ function localMeanSolarTime(mst,long) {
 function localTrueSolarTime(lmst,eot) {
   //LTST = LMST + EOT (24 h / 360°) = LMST + EOT (1 h / 15°)
   return (lmst + eot * (24/360)) % 24
+}
+
+function marsSolarDate(dt) {
+  return (((dt - 4.5) / 1.027491252) + 44796.0 - 0.00096)
 }
 
 function cos(deg) {
