@@ -18,10 +18,11 @@ function startTime() {
   Ls = aFMS + eqocentre
   eotdeg = eotDeg(Ls,eqocentre)
   eothrs = eotHrs(eotdeg)
+  mstPM = meanSolarTime(jdtt)
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = h_to_hms(eothrs)
+  document.getElementById('test').innerHTML = mstPM
   
   // make time tick
   setTimeout(startTime, 1000);
@@ -75,6 +76,11 @@ function eotDeg(ls,eoc){
 function eotHrs(eotDeg){
   // Multiply by (24 h / 360°) = (1 h / 15°) to obtain the result in hours.
   return eotDeg * (24/360)
+}
+
+function meanSolarTime(jdtt){
+  // MST = mod24 { 24 h × ( [(JDTT - 2451549.5) / 1.0274912517] + 44796.0 - 0.0009626 ) }
+  return (24 * (((jdtt - 2451549.5) / 1.0274912517) + 44796.0 - 0.0009626)) % 24
 }
 
 function cos(deg) {
