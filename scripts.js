@@ -6,7 +6,15 @@ function startTime() {
   let s = today.getSeconds();
   m = checkTime(m);
   s = checkTime(s);
-  dateTimeCalcs();
+  
+  // dates
+  const launchwindowopen = new Date(2022, 09, 20);
+  const launchwindowclose = new Date(2022, 10, 01);
+  const landing = new Date(2023, 05, 10);
+  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - date.getTime()) / (1000 * 3600 * 24))
+  daysUntilLanding = Math.floor((landing.getTime() - date.getTime()) / (1000 * 3600 * 24))
+  
+  dateTimeCalcs(today);
   
   document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
   document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
@@ -47,24 +55,11 @@ function startTimeDebug() {
   setTimeout(startTimeDebug, 1000);
 }
 
-function dateTimeCalcs(){
-  const today = new Date();
+function dateTimeCalcs(date){
   const ut = new Date(0);
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  
-  // dates
-  const launchwindowopen = new Date(2022, 09, 20);
-  const launchwindowclose = new Date(2022, 10, 01);
-  const landing = new Date(2023, 05, 10);
-  daysUntilLaunch = Math.floor((launchwindowopen.getTime() - today.getTime()) / (1000 * 3600 * 24))
-  daysUntilLanding = Math.floor((landing.getTime() - today.getTime()) / (1000 * 3600 * 24))
   
   // calls
-  jdut = julianDate(today.getTime());
+  jdut = julianDate(date.getTime());
   jdtt = julianTT(jdut);
   dtj2000 = dtJ2000(jdtt);
   mma = marsMeanAnomaly(dtj2000)
