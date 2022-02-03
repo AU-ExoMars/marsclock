@@ -24,8 +24,8 @@ function startTimeDebug() {
   document.getElementById("eotdeg").innerHTML = "eotdeg = " + eotdeg;
   document.getElementById("eothrs").innerHTML = "eothrs = " + eothrs;
   document.getElementById("mstPM").innerHTML = "mstPM = " + mstPM;
-  document.getElementById("lmst").innerHTML = "lmst = " + lmst;
-  document.getElementById("ltst").innerHTML = "ltst = " + ltst;
+  document.getElementById("lmst").innerHTML = "lmst = " + lmst + " = " + h_to_hms(lmst);
+  document.getElementById("ltst").innerHTML = "ltst = " + ltst + " = " + h_to_hms(ltst);
   document.getElementById("msd").innerHTML = "msd = " + msd;
   
   // make time tick
