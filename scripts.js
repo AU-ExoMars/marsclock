@@ -21,7 +21,7 @@ function startTime() {
   
   // prints
   document.getElementById('currentTime').innerHTML =  h + ":" + m + ":" + s;
-  document.getElementById('test').innerHTML = mma
+  document.getElementById('test').innerHTML = h_to_hms(eothrs)
   
   // make time tick
   setTimeout(startTime, 1000);
