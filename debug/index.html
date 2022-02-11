@@ -39,37 +39,37 @@
       }
 
       function exampleTime(){
-        exampleDate = new Date(947116800000);
-        jdut = 2451549.5;
-        jdtt = julianTT(jdut);
-        dtj2000 = dtJ2000(jdtt);
-        mma = marsMeanAnomaly(dtj2000);
-        aFMS = alphaFMS(dtj2000);
-        pbs = perturbers(dtj2000);
-        eqocentre = eoc(dtj2000,mma,pbs);
-        Ls = aFMS + eqocentre;
-        eotdeg = eotDeg(Ls,eqocentre);
-        eothrs = eotHrs(eotdeg);
-        mstPM = meanSolarTime(jdtt);
-        lmst = localMeanSolarTime(mstPM,24);
-        ltst = localTrueSolarTime(lmst,eotdeg);
-        msd = marsSolarDate(dtj2000);
+        exampleDate_s = new Date(947116800000);
+        jdut_s = 2451549.5;
+        jdtt_s = julianTT(jdut_s);
+        dtj2000_s = dtJ2000(jdtt_s);
+        mma_s = marsMeanAnomaly(dtj2000_s);
+        aFMS_s = alphaFMS(dtj2000_s);
+        pbs_s = perturbers(dtj2000_s);
+        eqocentre_s = eoc(dtj2000_s,mma_s,pbs_s);
+        Ls_s = aFMS_s + eqocentre_s;
+        eotdeg_s = eotDeg(Ls_s,eqocentre_s);
+        eothrs_s = eotHrs(eotdeg_s);
+        mstPM_s = meanSolarTime(jdtt_s);
+        lmst_s = localMeanSolarTime(mstPM_s,24);
+        ltst_s = localTrueSolarTime(lmst_s,eotdeg_s);
+        msd_s = marsSolarDate(dtj2000_s);
         
         document.getElementById("utc_s").innerHTML = "A-1. Get a starting Earth time: " + exampleDate.getHours() + ":" + checkTime(exampleDate.getMinutes()) + ":" + checkTime(exampleDate.getSeconds());
-        document.getElementById("jdut_s").innerHTML = "A-2. Convert millis to Julian Date (UT): jdut = " + jdut.toFixed(5);
-        document.getElementById("jdtt_s").innerHTML = "A-5. Determine Julian Date (TT): jdtt = " + jdtt.toFixed(5);
-        document.getElementById("dtj2000_s").innerHTML = "A-6. Determine time offset from J2000 epoch (TT): dtj2000 = " + dtj2000.toFixed(5);
-        document.getElementById("mma_s").innerHTML = "B-1. Determine Mars mean anomaly: mma = " + mma.toFixed(5);
-        document.getElementById("aFMS_s").innerHTML = "B-2. Determine angle of Fiction Mean Sun: aFMS = " + aFMS.toFixed(5);
-        document.getElementById("pbs_s").innerHTML = "B-3. Determine perturbers: pbs = " + pbs.toFixed(5);
-        document.getElementById("eqocentre_s").innerHTML = "B-4. Determine Equation of Center: eqocentre = " + eqocentre.toFixed(5);
-        document.getElementById("Ls_s").innerHTML = "B-5. Determine areocentric solar longitude: Ls = " + Ls.toFixed(5);
-        document.getElementById("eotdeg_s").innerHTML = "C-1a. Determine Equation of Time (degrees): eotdeg = " + eotdeg.toFixed(5);
-        document.getElementById("eothrs_s").innerHTML = "C-1b. Determine Equation of Time (hours): eothrs = " + eothrs.toFixed(5) + " = " + h_to_hms(within_24(eothrs));
-        document.getElementById("mstPM_s").innerHTML = "C-2. Determine Mean Solar Time at Mars's prime meridian, i.e., Airy Mean Time: mstPM = " + mstPM.toFixed(5) + " = " + h_to_hms(mstPM);
-        document.getElementById("lmst_s").innerHTML = "C-3. Determine Local Mean Solar Time: lmst = " + lmst.toFixed(5) + " = " + h_to_hms(within_24(lmst));
-        document.getElementById("ltst_s").innerHTML = "C-4. Determine Local True Solar Time: ltst = " + ltst.toFixed(5) + " = " + h_to_hms(within_24(ltst));
-        document.getElementById("msd_s").innerHTML = "Mars Sol Date (MSD): msd = " + msd.toFixed(5);
+        document.getElementById("jdut_s").innerHTML = "A-2. Convert millis to Julian Date (UT): jdut = " + jdut_s.toFixed(5);
+        document.getElementById("jdtt_s").innerHTML = "A-5. Determine Julian Date (TT): jdtt = " + jdtt_s.toFixed(5);
+        document.getElementById("dtj2000_s").innerHTML = "A-6. Determine time offset from J2000 epoch (TT): dtj2000 = " + dtj2000_s.toFixed(5);
+        document.getElementById("mma_s").innerHTML = "B-1. Determine Mars mean anomaly: mma = " + mma_s.toFixed(5);
+        document.getElementById("aFMS_s").innerHTML = "B-2. Determine angle of Fiction Mean Sun: aFMS = " + aFMS_s.toFixed(5);
+        document.getElementById("pbs_s").innerHTML = "B-3. Determine perturbers: pbs = " + pbs_s.toFixed(5);
+        document.getElementById("eqocentre_s").innerHTML = "B-4. Determine Equation of Center: eqocentre = " + eqocentre_s.toFixed(5);
+        document.getElementById("Ls_s").innerHTML = "B-5. Determine areocentric solar longitude: Ls = " + Ls_s.toFixed(5);
+        document.getElementById("eotdeg_s").innerHTML = "C-1a. Determine Equation of Time (degrees): eotdeg = " + eotdeg_s.toFixed(5);
+        document.getElementById("eothrs_s").innerHTML = "C-1b. Determine Equation of Time (hours): eothrs = " + eothrs_s.toFixed(5) + " = " + h_to_hms(within_24(eothrs_s));
+        document.getElementById("mstPM_s").innerHTML = "C-2. Determine Mean Solar Time at Mars's prime meridian, i.e., Airy Mean Time: mstPM = " + mstPM_s.toFixed(5) + " = " + h_to_hms(mstPM_s);
+        document.getElementById("lmst_s").innerHTML = "C-3. Determine Local Mean Solar Time: lmst = " + lmst_s.toFixed(5) + " = " + h_to_hms(within_24(lmst_s));
+        document.getElementById("ltst_s").innerHTML = "C-4. Determine Local True Solar Time: ltst = " + ltst_s.toFixed(5) + " = " + h_to_hms(within_24(ltst_s));
+        document.getElementById("msd_s").innerHTML = "Mars Sol Date (MSD): msd = " + msd_s.toFixed(5);
       }
     </script>
   </head>
