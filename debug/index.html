@@ -8,36 +8,20 @@
   </head>
   <body onload="startTimeDebug()">
     <div class="container">
-      <div class="row">
-        <div class="col-auto me-auto">
-          <h1>Values for debugging</h1>
-          <div id="utc"></div>
-          <div id="jdut"></div>
-          <div>(A-4. Optional step)</div>
-          <div>A-4. Determine UTC to TT conversion: 37.0s + 32.184s = 69.184s</div>
-          <div id="jdtt"></div>
-          <div id="dtj2000"></div>
-          <div id="mma"></div>
-          <div id="aFMS"></div>
-          <div id="pbs"></div>
-          <div id="eqocentre"></div>
-          <div id="Ls"></div>
-          <div id="eotdeg"></div>
-          <div id="eothrs"></div>
-          <div id="mstPM"></div>
-          <div id="lmst"></div>
-          <div id="ltst"></div>
-          <div id="msd"></div>
-          <br/>
-          <p>Steps from <a href="https://www.giss.nasa.gov/tools/mars24/help/algorithm.html">https://www.giss.nasa.gov/tools/mars24/help/algorithm.html</a>.</p>
-        </div>
-        <div class="col-auto" style="padding:10px">
+      <header class="mb-auto">
+        <div class="row">
+         <div class="col-md-4 offset-md-4">
           <a href="https://lionspaws.github.io/marsclock/">
             <button type="button" class="btn btn-secondary">
               <i class="bi bi-clock-fill"></i>
             </button>
           </a>
-          <br/>
+         </div>
+        </div>
+        <div style="padding:50px">
+          <h1 class="display-1 float-md-mid mb-0">ExoMars</h1>
+        </div>
+        <div class="col-auto" style="padding:10px">
           <p>
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseDateTime" role="button" aria-expanded="false" aria-controls="collapseDateTime">
               Live / Specified
@@ -64,6 +48,31 @@
             </div>
             </div>
           </div>
+      </header>
+      <div class="row">
+        <div class="col-auto me-auto">
+          <h1>Values for debugging</h1>
+          <div id="utc"></div>
+          <div id="jdut"></div>
+          <div>(A-4. Optional step)</div>
+          <div>A-4. Determine UTC to TT conversion: 37.0s + 32.184s = 69.184s</div>
+          <div id="jdtt"></div>
+          <div id="dtj2000"></div>
+          <div id="mma"></div>
+          <div id="aFMS"></div>
+          <div id="pbs"></div>
+          <div id="eqocentre"></div>
+          <div id="Ls"></div>
+          <div id="eotdeg"></div>
+          <div id="eothrs"></div>
+          <div id="mstPM"></div>
+          <div id="lmst"></div>
+          <div id="ltst"></div>
+          <div id="msd"></div>
+          <br/>
+          <p>Steps from <a href="https://www.giss.nasa.gov/tools/mars24/help/algorithm.html">https://www.giss.nasa.gov/tools/mars24/help/algorithm.html</a>.</p>
+        </div>
+        
         </div>
       </div>
     </div>
