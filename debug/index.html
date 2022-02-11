@@ -55,7 +55,7 @@
         ltst_s = localTrueSolarTime(lmst_s,eotdeg_s);
         msd_s = marsSolarDate(dtj2000_s);
         
-        document.getElementById("utc_s").innerHTML = "A-1. Get a starting Earth time: " + exampleDate_s.getHours() + ":" + checkTime(exampleDate_s.getMinutes()) + ":" + checkTime(exampleDate_s.getSeconds());
+        document.getElementById("utc_s").innerHTML = "A-1. Get a starting Earth time: " + exampleDate_s.getDate() + "/" + exampleDate_s.getMonth() + "/" +exampleDate_s.getFullYear() + " " + exampleDate_s.getHours() + ":" + checkTime(exampleDate_s.getMinutes()) + ":" + checkTime(exampleDate_s.getSeconds());
         document.getElementById("jdut_s").innerHTML = "A-2. Convert millis to Julian Date (UT): jdut = " + jdut_s.toFixed(5);
         document.getElementById("jdtt_s").innerHTML = "A-5. Determine Julian Date (TT): jdtt = " + jdtt_s.toFixed(5);
         document.getElementById("dtj2000_s").innerHTML = "A-6. Determine time offset from J2000 epoch (TT): dtj2000 = " + dtj2000_s.toFixed(5);
