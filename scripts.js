@@ -109,3 +109,12 @@ function h_to_hms(h) {
   if (ss < 10) ss = "0" + ss;
   return hh + ":" + mm + ":" + ss;
 }
+
+function within_24(n) {
+    if (n < 0) {
+        n += 24;
+    } else if (n >= 24) {
+        n -= 24;
+    }
+    return n;
+}
