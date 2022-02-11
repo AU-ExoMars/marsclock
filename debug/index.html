@@ -16,7 +16,7 @@
         m = checkTime(m);
         s = checkTime(s);
         dateTimeCalcs();
-        //exampleTime();
+        exampleTime();
 
         document.getElementById("utc_l").innerHTML = "A-1. Get a starting Earth time: " + h + ":" + m + ":" + s;
         document.getElementById("jdut_l").innerHTML = "A-2. Convert millis to Julian Date (UT): jdut = " + jdut.toFixed(5);
@@ -39,23 +39,23 @@
       }
 
       function exampleTime(){
-        ms = 947116800000
-        jdut = 2451549.5
-        jdtt = julianTT(jdut)
-        dtj2000 = dtJ2000(jdtt)
-        mma = marsMeanAnomaly(dtj2000)
-        aFMS = alphaFMS(dtj2000)
-        pbs = perturbers(dtj2000)
-        eqocentre = eoc(dtj2000,mma,pbs)
-        Ls = aFMS + eqocentre
-        eotdeg = eotDeg(Ls,eqocentre)
-        eothrs = eotHrs(eotdeg)
-        mstPM = meanSolarTime(jdtt)
-        lmst = localMeanSolarTime(mstPM,24)
-        ltst = localTrueSolarTime(lmst,eotdeg)
-        msd = marsSolarDate(dtj2000)
-
-        document.getElementById("utc_s").innerHTML = "A-1. Get a starting Earth time: " + h + ":" + m + ":" + s;
+        exampleDate = new Date(947116800000);
+        jdut = 2451549.5;
+        jdtt = julianTT(jdut);
+        dtj2000 = dtJ2000(jdtt);
+        mma = marsMeanAnomaly(dtj2000);
+        aFMS = alphaFMS(dtj2000);
+        pbs = perturbers(dtj2000);
+        eqocentre = eoc(dtj2000,mma,pbs);
+        Ls = aFMS + eqocentre;
+        eotdeg = eotDeg(Ls,eqocentre);
+        eothrs = eotHrs(eotdeg);
+        mstPM = meanSolarTime(jdtt);
+        lmst = localMeanSolarTime(mstPM,24);
+        ltst = localTrueSolarTime(lmst,eotdeg);
+        msd = marsSolarDate(dtj2000);
+        
+        document.getElementById("utc_s").innerHTML = "A-1. Get a starting Earth time: " + exampleDate.getHours() + ":" + checkTime(exampleDate.getMinutes()) + ":" + checkTime(exampleDate.getSeconds());
         document.getElementById("jdut_s").innerHTML = "A-2. Convert millis to Julian Date (UT): jdut = " + jdut.toFixed(5);
         document.getElementById("jdtt_s").innerHTML = "A-5. Determine Julian Date (TT): jdtt = " + jdtt.toFixed(5);
         document.getElementById("dtj2000_s").innerHTML = "A-6. Determine time offset from J2000 epoch (TT): dtj2000 = " + dtj2000.toFixed(5);
