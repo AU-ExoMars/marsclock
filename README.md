@@ -1,6 +1,6 @@
 # marsclock
 
-See me running at: https://lionspaws.github.io/marsclock/
+See me running at: https://au-exomars.github.io/marsclock/
 
 ## Refs
 
