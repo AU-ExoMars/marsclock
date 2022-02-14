@@ -1,39 +1,46 @@
-
-
 function dateTimeCalcs(){
+  // A1 Get a starting Earth time in milliseconds
   const today = new Date();
   const ut = new Date(0);
   
-  // calls
+  // calls each function to process the time calcs
   jdut = julianDate(today.getTime());
   jdtt = julianTT(jdut);
   dtj2000 = dtJ2000(jdtt);
-  mma = marsMeanAnomaly(dtj2000)
-  aFMS = alphaFMS(dtj2000)
-  pbs = perturbers(dtj2000)
-  eqocentre = eoc(dtj2000,mma,pbs)
-  Ls = aFMS + eqocentre
-  eotdeg = eotDeg(Ls,eqocentre)
-  eothrs = eotHrs(eotdeg)
-  mstPM = meanSolarTime(jdtt)
-  lmst = localMeanSolarTime(mstPM,24)
-  ltst = localTrueSolarTime(lmst,eotdeg)
-  msd = marsSolarDate(dtj2000)
+  mma = marsMeanAnomaly(dtj2000);
+  aFMS = alphaFMS(dtj2000);
+  pbs = perturbers(dtj2000);
+  eqocentre = eoc(dtj2000,mma,pbs);
+  Ls = aFMS + eqocentre; // areocentric solar longitude
+  eotdeg = eotDeg(Ls,eqocentre);
+  eothrs = eotHrs(eotdeg);
+  mstPM = meanSolarTime(jdtt);
+  lmst = localMeanSolarTime(mstPM,24);
+  ltst = localTrueSolarTime(lmst,eotdeg);
+  msd = marsSolarDate(dtj2000);
 }
 
+// visual fixing of numbers
 function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  if (i < 10){i = "0" + i};  // add zero in front of numbers < 10
   return i;
 }
 
+// Convert millis to Julian Date
+// offset from the Unix epoch as a known JD
 function julianDate(i){
  return 2440587.5 + (i / 86400000)
 }
 
+// UTC to Terrestrial Time TT
+// TAI to UTC = 32.184s
+// also need to add current leap seconds because js doesn't; https://www.timeanddate.com/time/leapseconds.html = 37s
+// 37 + 32.184 = 69.184s
 function julianTT(jdut){
  return jdut + (69.184 / 86400)
 }
 
+// time offset from the J2000 epoch
 function dtJ2000(jdtt){
  return jdtt - 2451545.0 
 }
@@ -42,6 +49,7 @@ function marsMeanAnomaly(dt) {
  return (19.3871 + 0.52402073 * dt) % 360
 }
 
+// angle of Fiction Mean Sun
 function alphaFMS(dt){
  return (270.3871 + 0.524038496 * dt) % 360
 }
@@ -56,11 +64,13 @@ function perturbers(dt) {
     0.0018 * cos((0.985626 * dt / 32.8493) +  49.095)
 }
 
+// equation of center = the true anomaly minus mean anomaly
 function eoc(dt,m,pbs) {
   //ν - M = (10.691° + 3.0° × 10-7 ΔtJ2000) sin M + 0.623° sin 2M + 0.050° sin 3M + 0.005° sin 4M + 0.0005° sin 5M + PBS
   return (10.691 + 3.0E-7 * dt) * sin(m) + 0.623 * sin(2 * m) + 0.050 * sin(3 * m) + 0.005 * sin(4 * m) + 0.0005 * sin(5 * m) + pbs
 }
 
+// C1 Equation of Time in degrees and hours
 function eotDeg(ls,eoc){
   // 2.861° sin 2Ls - 0.071° sin 4Ls + 0.002° sin 6Ls - (ν - M)
   return 2.861 * sin(2*ls) - 0.071 * sin(4*ls) + 0.02 * sin(6*ls) - eoc
@@ -71,6 +81,7 @@ function eotHrs(eotDeg){
   return eotDeg * (24/360)
 }
 
+// C2 Determine Mean Solar Time at Mars's prime meridian, i.e., Airy Mean Time
 function meanSolarTime(jdtt){
   // MST = mod24 { 24 h × ( [(JDTT - 2451549.5) / 1.0274912517] + 44796.0 - 0.0009626 ) }
   return (24 * (((jdtt - 2451549.5) / 1.0274912517) + 44796.0 - 0.0009626)) % 24
@@ -90,14 +101,15 @@ function marsSolarDate(dt) {
   return (((dt - 4.5) / 1.027491252) + 44796.0 - 0.00096)
 }
 
+// cos and sin in radians
 function cos(deg) {
   return Math.cos(deg * Math.PI / 180);
 }
-
 function sin(deg) {
   return Math.sin(deg * Math.PI / 180);
 }
 
+// prettify times into human-readable hh:mm:ss format
 function h_to_hms(h) {
   var x = h * 3600;
   var hh = Math.floor(x / 3600);
@@ -110,6 +122,7 @@ function h_to_hms(h) {
   return hh + ":" + mm + ":" + ss;
 }
 
+// fix any wrapping of 24hr times
 function within_24(n) {
     if (n < 0) {
         n += 24;
