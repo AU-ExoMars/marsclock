@@ -18,9 +18,9 @@
         s = checkTime(s);
 
         // dates
-        const launchwindowopen = new Date(2022, 08, 20);
-        const launchwindowclose = new Date(2022, 09, 01);
-        const landing = new Date(2023, 05, 10);
+        const launchwindowopen = new Date(2028, 09, 05);
+        const launchwindowclose = new Date(2028, 09, 05);
+        const landing = new Date(2030, 09, 28);
         daysUntilLaunch = Math.floor((Date.UTC(launchwindowopen.getFullYear(), launchwindowopen.getMonth(), launchwindowopen.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
         daysUntilLanding = Math.floor((Date.UTC(landing.getFullYear(), landing.getMonth(), landing.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
         
