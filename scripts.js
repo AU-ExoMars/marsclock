@@ -131,3 +131,16 @@ function within_24(n) {
     }
     return n;
 }
+
+// prettify day counting too
+// solution from https://stackoverflow.com/questions/44502866/transform-number-of-days-in-years-months-days-in-javascript
+function d_to_ymd(d) {
+  var years = Math.floor(numberOfDays / 365.242199);
+  var months = Math.floor(numberOfDays % 365.242199 / 30.43692);
+  var days = Math.floor(numberOfDays % 365.242199 % 30.43692);
+  
+  var yearsDisplay = years > 0 ? years + (years == 1 ? " year, " : " years, ") : "";
+  var monthsDisplay = months > 0 ? months + (months == 1 ? " month, " : " months, ") : "";
+  var daysDisplay = days > 0 ? days + (days == 1 ? " day" : " days") : "";
+  return yearsDisplay + monthsDisplay + daysDisplay; 
+}
