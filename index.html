@@ -21,8 +21,9 @@
         // nominal dates, backup EMM LW 8-28 Dec 28, land 15 Jul - 16 Aug 30
         const launchwindowopen = new Date(2028, 09, 21);
         const launchwindowclose = new Date(2028, 09, 05);
-        const landing = new Date(2030, 11, 16); // window opens; closes 19 De 2030
+        const landing = new Date(2030, 11, 16); // window opens; closes 19 Dec 2030
         daysUntilLaunch = Math.floor((Date.UTC(launchwindowopen.getFullYear(), launchwindowopen.getMonth(), launchwindowopen.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
+        daysUntilLaunchClose = Math.floor((Date.UTC(launchwindowclose.getFullYear(), launchwindowclose.getMonth(), launchwindowclose.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
         daysUntilLanding = Math.floor((Date.UTC(landing.getFullYear(), landing.getMonth(), landing.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
         
         dateTimeCalcs();
@@ -30,8 +31,19 @@
         document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
         document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
         document.getElementById('ltstOP').innerHTML = h_to_hms(within_24(ltst));
-        document.getElementById('landing').innerHTML = daysUntilLanding + " days until mission starts";
-        document.getElementById('launch').innerHTML = "Launch window opens in " + daysUntilLaunch + " days";
+
+        var dayFormatYMD = true;
+        launchString = "";
+        landingString = "";
+        if(dayFormatYMD){
+          launchString = "Launch window opens in " + d_to_ymd(daysUntilLaunch);
+          landingString = d_to_ymd(daysUntilLanding) + " until mission starts";
+        } else {
+          launchString = "Launch window opens in " + daysUntilLaunch + " days";
+          landingString = daysUntilLanding + " days until mission starts";
+        }
+        document.getElementById('landing').innerHTML = landingString;
+        document.getElementById('launch').innerHTML = launchString;
 
         // make time tick
         setTimeout(startTime, 1000);
