@@ -28,6 +28,7 @@ var utctagCy = "UTC (Y Ddaear)";
 
 // set-lang specific strings, default to En in case of an issue
 function setStrings(currentLang = langs[0]){
+  console.log(currentLang);
   if(currentLang == langs[0]){
     document.getElementById('title').innerHTML = titleEn;
     document.getElementById('utcCap').innerHTML = utctagEn;
