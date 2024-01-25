@@ -11,8 +11,10 @@
     <script>
       var dayFormatYMD = true;
       var currentLang = "En";
-      var launchString = "";
-      var landingString = "";
+      var langChange = true; // make it run once
+      var launchString = "", landingString = "";
+      var titletext = "", utctag = "", mtctag = "";
+      var launchYmd = "", landingYmd = "", launchD = "", landingD = "";
 
       // nominal dates, backup EMM LW 8-28 Dec 28, land 15 Jul - 16 Aug 30
       const launchwindowopen = new Date(2028, 09, 21);
@@ -39,7 +41,23 @@
         dateTimeCalcs();
 
         // update the visible text
-        setStrings(currentLang);
+        if(langChange){
+          setStrings(currentLang);
+          langChange = false;
+        }
+        
+        // update strings
+        document.getElementById('title').innerHTML = titletext;
+        document.getElementById('utcCap').innerHTML = utctag;
+        document.getElementById('mtcCap').innerHTML = mtctag;
+        
+        if(dayFormatYMD){
+          document.getElementById('landing').innerHTML = landingYmd;
+          document.getElementById('launch').innerHTML = launchYmd;
+        } else {
+          document.getElementById('landing').innerHTML = landingD;
+          document.getElementById('launch').innerHTML = launchD;
+        }
         
         // non-lang specific
         document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
@@ -83,7 +101,7 @@
           </button>
         </div>
         <div class="p-2">
-          <button type="button" class="btn btn-secondary" onclick="currentLang = toggleLang(currentLang)">
+          <button type="button" class="btn btn-secondary" onclick="currentLang = toggleLang(currentLang); langChange = true;">
             <i class="bi bi-chat-square-quote-fill"></i>
           </button>
         </div>
