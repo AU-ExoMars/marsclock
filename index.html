@@ -20,14 +20,13 @@
       const landing = new Date(2030, 11, 16); // window opens; closes 19 Dec 2030
 
       var daysUntilLaunch = 0, daysUntilLaunchClose = 0, daysUntilLanding = 0;
-      let h = 0, m = 0, s = 0;
       
       function startTime() {
         const today = new Date();
         const ut = new Date(0);
-        h = today.getHours();
-        m = today.getMinutes();
-        s = today.getSeconds();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
         
         m = checkTime(m);
         s = checkTime(s);
@@ -41,6 +40,11 @@
 
         // update the visible text
         setStrings(currentLang);
+        
+        // non-lang specific
+        document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
+        document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
+        document.getElementById('ltstOP').innerHTML = h_to_hms(within_24(ltst));
 
         // make time tick
         setTimeout(startTime, 1000);
