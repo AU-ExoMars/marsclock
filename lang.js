@@ -30,14 +30,14 @@ function setStrings(currentLang = langs[0]){
   if(currentLang == langs[1]){
     document.getElementById('title').innerHTML = titleCy;
   }
-}
 
-if(dayFormatYMD){
-  document.getElementById('landing').innerHTML = landingYmd;
-  document.getElementById('launch').innerHTML = launchYmd;
-} else {
-  document.getElementById('landing').innerHTML = landingD;
-  document.getElementById('launch').innerHTML = launchD;
+  if(dayFormatYMD){
+    document.getElementById('landing').innerHTML = landingYmd;
+    document.getElementById('launch').innerHTML = launchYmd;
+  } else {
+    document.getElementById('landing').innerHTML = landingD;
+    document.getElementById('launch').innerHTML = launchD;
+  }
 }
 
 // non-lang specific
