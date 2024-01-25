@@ -10,6 +10,8 @@
     <script src="colourmode.js"></script>
     <script>
       var dayFormatYMD = true;
+      var currentLang = "En";
+      
       function startTime() {
         const today = new Date();
         const ut = new Date(0);
@@ -81,7 +83,7 @@
           </button>
         </div>
         <div class="p-2">
-          <button type="button" class="btn btn-secondary" onclick="toggleLang()">
+          <button type="button" class="btn btn-secondary" onclick="currentLang = toggleLang(currentLang)">
             <i class="bi bi-chat-square-quote-fill"></i>
           </button>
         </div>
