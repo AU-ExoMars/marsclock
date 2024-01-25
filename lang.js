@@ -6,43 +6,27 @@ function toggleLang(currentLang){
   if(currentLang == langs[1]){return langs[0]};
 }
 
-// En Strings
-var titleEn = "ExoMars Rosalind Franklin Mission";
-var launchYmdEn = "Launch window opens in " + d_to_ymd(daysUntilLaunch, langs[0]);
-var landingYmdEn = d_to_ymd(daysUntilLanding, langs[0]) + " until mission starts";
-var launchDaysEn = "Launch window opens in " + daysUntilLaunch + " days";
-var landingDaysEn = daysUntilLanding + " days until mission starts";
-var mtctagEn = "MTC (Mars)";
-var utctagEn = "UTC (Earth)";
-
-// Cy Strings
-var titleCy = "Cenhadaeth ExoMars Rosalind Franklin";
-var launchYmdCy = "Ffenestr lansio yn agor mewn " + d_to_ymd(daysUntilLaunch, langs[1]);
-var landingYmdCy = d_to_ymd(daysUntilLanding, langs[1]) + " tan ddechrau'r cenhadaeth";
-var launchDaysCy = "Ffenestr lansio yn agor mewn " + daysUntilLaunch + " dyddiau";
-var landingDaysCy = daysUntilLanding + " dydd tan ddechrau'r cenhadaeth";
-var mtctagCy = "MTC (Mawrth)";
-var utctagCy = "UTC (Y Ddaear)";
-
 // set-lang specific strings, default to En in case of an issue
 function setStrings(currentLang = langs[0]){
   console.log(currentLang);
+  // En Strings
   if(currentLang == langs[0]){
-    titletext = titleEn;
-    utctag = utctagEn;
-    mtctag = mtctagEn;
-    launchYmd = launchYmdEn;
-    landingYmd = landingYmdEn;
-    launchD = launchDaysEn;
-    landingD = landingDaysEn;
+    titletext = "ExoMars Rosalind Franklin Mission";
+    utctag = "UTC (Earth)";
+    mtctag = "MTC (Mars)";
+    launchYmd = "Launch window opens in " + d_to_ymd(daysUntilLaunch, langs[0]);
+    landingYmd = d_to_ymd(daysUntilLanding, langs[0]) + " until mission starts";
+    launchD = "Launch window opens in " + daysUntilLaunch + " days";
+    landingD = daysUntilLanding + " days until mission starts";
   }
+  // Cy Strings
   if(currentLang == langs[1]){
-    titletext = titleCy;
-    utctag = utctagCy;
-    mtctag = mtctagCy;
-    launchYmd = launchYmdCy;
-    landingYmd = landingYmdCy;
-    launchD = launchDaysCy;
-    landingD = landingDaysCy;
+    titletext = "Cenhadaeth ExoMars Rosalind Franklin";
+    utctag = "UTC (Y Ddaear)";
+    mtctag = "MTC (Mawrth)";
+    launchYmd = "Ffenestr lansio yn agor mewn " + d_to_ymd(daysUntilLaunch, langs[1]);
+    landingYmd = d_to_ymd(daysUntilLanding, langs[1]) + " tan ddechrau'r cenhadaeth";
+    launchD = "Ffenestr lansio yn agor mewn " + daysUntilLaunch + " dydd";
+    landingD = daysUntilLanding + " dydd tan ddechrau'r cenhadaeth";
   }
 }
