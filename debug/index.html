@@ -41,7 +41,7 @@
 
       function exampleTime(input = 947116800000){
         exampleDate_s = new Date(input);
-        jdut_s = exampleDate_s;
+        jdut_s = julianDate(exampleDate_s);
         jdtt_s = julianTT(jdut_s);
         dtj2000_s = dtJ2000(jdtt_s);
         mma_s = marsMeanAnomaly(dtj2000_s);
