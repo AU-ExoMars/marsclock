@@ -43,8 +43,3 @@ function setStrings(currentLang = langs[0]){
     document.getElementById('launch').innerHTML = launchD;
   }
 }
-
-// non-lang specific
-document.getElementById('earthUTC').innerHTML =  h + ":" + m + ":" + s;
-document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
-document.getElementById('ltstOP').innerHTML = h_to_hms(within_24(ltst));
