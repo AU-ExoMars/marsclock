@@ -19,8 +19,10 @@
       const launchwindowclose = new Date(2028, 09, 05);
       const landing = new Date(2030, 11, 16); // window opens; closes 19 Dec 2030
 
-      var daysUntilLaunch, daysUntilLaunchClose, daysUntilLanding;
-      var h, m, s;
+      var daysUntilLaunch = 0, daysUntilLaunchClose = 0, daysUntilLanding = 0;
+      let h = today.getHours();
+      let m = today.getMinutes();
+      let s = today.getSeconds();
       
       function startTime() {
         const today = new Date();
