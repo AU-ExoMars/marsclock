@@ -40,8 +40,8 @@
       }
 
       function exampleTime(input = 947116800000){
-        exampleDate_s = new Date(input)
-        jdut_s = 2451549.5;
+        exampleDate_s = new Date(input);
+        jdut_s = exampleDate_s;
         jdtt_s = julianTT(jdut_s);
         dtj2000_s = dtJ2000(jdtt_s);
         mma_s = marsMeanAnomaly(dtj2000_s);
@@ -58,6 +58,8 @@
         
         document.getElementById("utc_s").innerHTML = "A-1. Get a starting Earth time: " + exampleDate_s.getDate() + "/" + exampleDate_s.getMonth() + "/" +exampleDate_s.getFullYear() + " " + exampleDate_s.getHours() + ":" + checkTime(exampleDate_s.getMinutes()) + ":" + checkTime(exampleDate_s.getSeconds());
         document.getElementById("jdut_s").innerHTML = "A-2. Convert millis to Julian Date (UT): jdut = " + jdut_s.toFixed(5);
+        document.getElementById("a3").innerHTML = "(A-3. Optional step)";
+        document.getElementById("a4").innerHTML = "A-4. Determine UTC to TT conversion: 37.0s + 32.184s = 69.184s";
         document.getElementById("jdtt_s").innerHTML = "A-5. Determine Julian Date (TT): jdtt = " + jdtt_s.toFixed(5);
         document.getElementById("dtj2000_s").innerHTML = "A-6. Determine time offset from J2000 epoch (TT): dtj2000 = " + dtj2000_s.toFixed(5);
         document.getElementById("mma_s").innerHTML = "B-1. Determine Mars mean anomaly: mma = " + mma_s.toFixed(5);
@@ -122,7 +124,7 @@
               <div id="msd_l"></div>
             </div>
             <div class="tab-pane container fade" id="specified">
-              <input type="date" id="timeToConvert" name="timeToConvert">
+              <input type="datetime-local" id="timeToConvert" name="timeToConvert">
               <script>
                 let field = document.querySelector('#timeToConvert');
                 // Handle date changes
@@ -132,10 +134,10 @@
                   exampleTime(date);
                 });
               </script>
-              <div id="utc_s"></div>
+              <div id="utc_s">Select a date-time to convert</div>
               <div id="jdut_s"></div>
-              <div>(A-3. Optional step)</div>
-              <div>A-4. Determine UTC to TT conversion: 37.0s + 32.184s = 69.184s</div>
+              <div id="a3"></div>
+              <div id="a4"></div>
               <div id="jdtt_s"></div>
               <div id="dtj2000_s"></div>
               <div id="mma_s"></div>
