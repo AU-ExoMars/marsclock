@@ -40,15 +40,6 @@
         setTimeout(startTimeDebug, 1000);
       }
 
-      let field = document.querySelector('#timeToConvert');
-      // Handle date changes
-      timeToConvert.addEventListener('input', function () {      
-        // Get the date
-        let date = new Date(field.value).getTime();
-        console.log(date);
-        exampleTime(date);
-      });
-
       function exampleTime(exampleDate_s = new Date(947116800000)){
         jdut_s = 2451549.5;
         jdtt_s = julianTT(jdut_s);
@@ -102,7 +93,6 @@
       </header>
       <div class="row">
         <div class="col-auto me-auto">
-          
           <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link active" data-bs-toggle="tab" href="#live">Live</a>
@@ -133,6 +123,16 @@
             </div>
             <div class="tab-pane container fade" id="specified">
               <input type="date" id="timeToConvert" name="timeToConvert">
+              <script>
+                let field = document.querySelector('#timeToConvert');
+                // Handle date changes
+                timeToConvert.addEventListener('input', function () {      
+                  // Get the date
+                  let date = new Date(field.value).getTime();
+                  console.log(date);
+                  exampleTime(date);
+                });
+              </script>
               <div id="utc_s"></div>
               <div id="jdut_s"></div>
               <div>(A-3. Optional step)</div>
