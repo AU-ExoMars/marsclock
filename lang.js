@@ -2,8 +2,8 @@
 const langs = ["En", "Cy"];
 
 function toggleLang(currentLang){
-  if(currentLang == lang[0]){return lang[1]};
-  if(currentLang == lang[1]){return lang[0]};
+  if(currentLang == langs[0]){return langs[1]};
+  if(currentLang == langs[1]){return langs[0]};
 }
 
 // En Strings
