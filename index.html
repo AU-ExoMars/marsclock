@@ -9,6 +9,7 @@
     <script src="scripts.js"></script>
     <script src="colourmode.js"></script>
     <script>
+      var dayFormatYMD = true;
       function startTime() {
         const today = new Date();
         const ut = new Date(0);
@@ -32,7 +33,6 @@
         document.getElementById('marsCT').innerHTML = h_to_hms(mstPM);
         document.getElementById('ltstOP').innerHTML = h_to_hms(within_24(ltst));
 
-        var dayFormatYMD = true;
         launchString = "";
         landingString = "";
         if(dayFormatYMD){
@@ -48,24 +48,40 @@
         // make time tick
         setTimeout(startTime, 1000);
       }
+      function toggleDateFormatting(){
+        dayFormatYMD = !dayFormatYMD;
+      }
     </script
   </head>
   
 <body class="d-flex h-100 text-center" onload="startTime()">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <div class="container-fluid">
-      <a href="./debug/">
-        <button type="button" class="btn btn-secondary">
-          <i class="bi bi-bug-fill"></i>
-        </button>
-      </a>
-      <button type="button" class="btn btn-secondary" data-bs-theme-value="light">
-        <i class="bi bi-sun-fill"></i>
-      </button>
-      <button type="button" class="btn btn-secondary" data-bs-theme-value="dark">
-        <i class="bi bi-moon-stars-fill"></i>
-      </button>   
-  
+      <div class="hstack gap-3">
+        <div class="p-2">
+          <a href="./debug/">
+            <button type="button" class="btn btn-secondary">
+              <i class="bi bi-bug-fill"></i>
+            </button>
+          </a>
+        /div>
+        <div class="vr"></div>
+        <div class="p-2">
+          <button type="button" class="btn btn-secondary" data-bs-theme-value="light">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-theme-value="dark">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>  
+        </div>
+        <div class="vr"></div>
+        <div class="p-2">
+          <button type="button" class="btn btn-secondary" onclick="toggleDateFormatting()">
+            <i class="bi bi-123"></i>
+          </button>
+        </div>
+      </div>
+      
   <header class="mb-auto">
     <div style="padding:50px">
       <h1 class="display-1 float-md-mid mb-0">ExoMars Rosalind Franklin Mission</h1>
