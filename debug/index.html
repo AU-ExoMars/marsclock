@@ -40,6 +40,15 @@
         setTimeout(startTimeDebug, 1000);
       }
 
+      let field = document.querySelector('#timeToConvert');
+      // Handle date changes
+      timeToConvert.addEventListener('input', function () {      
+        // Get the date
+        let date = new Date(field.value).getTime();
+        console.log(date);
+        exampleTime(date);
+      });
+
       function exampleTime(exampleDate_s = new Date(947116800000)){
         jdut_s = 2451549.5;
         jdtt_s = julianTT(jdut_s);
@@ -123,10 +132,7 @@
               <div id="msd_l"></div>
             </div>
             <div class="tab-pane container fade" id="specified">
-              <input type="datetime-local" id="timeToConvert">
-              <button onclick="console.log(document.getElementById('timeToConvert').valueAsDate)">
-                <i class="bi bi-clock-history"></i>
-              </button>
+              <input type="date" id="timeToConvert" name="timeToConvert">
               <div id="utc_s"></div>
               <div id="jdut_s"></div>
               <div>(A-3. Optional step)</div>
