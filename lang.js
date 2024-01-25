@@ -13,10 +13,10 @@ titleEn = "ExoMars Rosalind Franklin Mission";
 titleCy = "Cenhadaeth ExoMars Rosalind Franklin";
 
 function setStrings(currentLang){
-  if(currentLang == lang[0]){
+  if(currentLang == langs[0]){
     document.getElementById('title').innerHTML = titleEn;
   }
-  if(currentLang == lang[1]){
+  if(currentLang == langs[1]){
     document.getElementById('title').innerHTML = titleCy;
   }
 }
