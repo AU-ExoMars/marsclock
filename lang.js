@@ -18,8 +18,8 @@ var landingDaysEn = daysUntilLanding + " days until mission starts";
 // Cy Strings
 var titleCy = "Cenhadaeth ExoMars Rosalind Franklin";
 
-// set-lang specific strings
-function setStrings(currentLang){
+// set-lang specific strings, default to En in case of an issue
+function setStrings(currentLang = langs[0]){
   if(currentLang == langs[0]){
     document.getElementById('title').innerHTML = titleEn;
     launchYmd = launchYmdEn;
