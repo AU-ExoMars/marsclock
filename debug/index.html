@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme-value="dark">
+<html data-bs-theme-value="light">
   <head>
     <title>RF's Mars Clock - Calculations</title>
     <link rel="icon" type="image/x-icon" href="https://i0.wp.com/exomars.wales/wp-content/uploads/2018/06/exomars-wales-logo-250.png?fit=220%2C250&ssl=1">
@@ -40,8 +40,7 @@
         setTimeout(startTimeDebug, 1000);
       }
 
-      function exampleTime(){
-        exampleDate_s = new Date(947116800000);
+      function exampleTime(exampleDate_s = new Date(947116800000)){
         jdut_s = 2451549.5;
         jdtt_s = julianTT(jdut_s);
         dtj2000_s = dtJ2000(jdtt_s);
@@ -124,6 +123,10 @@
               <div id="msd_l"></div>
             </div>
             <div class="tab-pane container fade" id="specified">
+              <input type="datetime-local" id="timeToConvert">
+              <button onclick="exampleTime(document.getElementById('timeToConvert').valueAsDate)">
+                <i class="bi bi-clock-history"></i>
+              </button>
               <div id="utc_s"></div>
               <div id="jdut_s"></div>
               <div>(A-3. Optional step)</div>
