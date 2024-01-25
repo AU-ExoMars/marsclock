@@ -135,8 +135,6 @@ function within_24(n) {
 // prettify day counting too
 // solution from https://stackoverflow.com/questions/44502866/transform-number-of-days-in-years-months-days-in-javascript
 function d_to_ymd(numberOfDays, lang = "En") {
-  console.log(numberOfDays)
-  console.log(lang)
   if(lang == "En"){
     yy = " year, ";
     yys = " years, ";
