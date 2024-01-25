@@ -6,8 +6,6 @@ function toggleLang(currentLang){
   if(currentLang == langs[1]){return langs[0]};
 }
 
-var launchYmd, landingYmd, launchD, landingD;
-
 // En Strings
 var titleEn = "ExoMars Rosalind Franklin Mission";
 var launchYmdEn = "Launch window opens in " + d_to_ymd(daysUntilLaunch, langs[0]);
@@ -30,29 +28,21 @@ var utctagCy = "UTC (Y Ddaear)";
 function setStrings(currentLang = langs[0]){
   console.log(currentLang);
   if(currentLang == langs[0]){
-    document.getElementById('title').innerHTML = titleEn;
-    document.getElementById('utcCap').innerHTML = utctagEn;
-    document.getElementById('mtcCap').innerHTML = mtctagEn;
+    titletext = titleEn;
+    utctag = utctagEn;
+    mtctag = mtctagEn;
     launchYmd = launchYmdEn;
     landingYmd = landingYmdEn;
     launchD = launchDaysEn;
     landingD = landingDaysEn;
   }
   if(currentLang == langs[1]){
-    document.getElementById('title').innerHTML = titleCy;
-    document.getElementById('utcCap').innerHTML = utctagCy;
-    document.getElementById('mtcCap').innerHTML = mtctagCy;
+    titletext = titleCy;
+    utctag = utctagCy;
+    mtctag = mtctagCy;
     launchYmd = launchYmdCy;
     landingYmd = landingYmdCy;
     launchD = launchDaysCy;
     landingD = landingDaysCy;
-  }
-
-  if(dayFormatYMD){
-    document.getElementById('landing').innerHTML = landingYmd;
-    document.getElementById('launch').innerHTML = launchYmd;
-  } else {
-    document.getElementById('landing').innerHTML = landingD;
-    document.getElementById('launch').innerHTML = launchD;
   }
 }
