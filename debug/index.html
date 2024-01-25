@@ -40,7 +40,8 @@
         setTimeout(startTimeDebug, 1000);
       }
 
-      function exampleTime(exampleDate_s = new Date(947116800000)){
+      function exampleTime(input = 947116800000){
+        exampleDate_s = new Date(input)
         jdut_s = 2451549.5;
         jdtt_s = julianTT(jdut_s);
         dtj2000_s = dtJ2000(jdtt_s);
@@ -129,7 +130,6 @@
                 timeToConvert.addEventListener('input', function () {      
                   // Get the date
                   let date = new Date(field.value).getTime();
-                  console.log(date);
                   exampleTime(date);
                 });
               </script>
