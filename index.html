@@ -13,6 +13,13 @@
       var currentLang = "En";
       var launchString = "";
       var landingString = "";
+
+      // nominal dates, backup EMM LW 8-28 Dec 28, land 15 Jul - 16 Aug 30
+      const launchwindowopen = new Date(2028, 09, 21);
+      const launchwindowclose = new Date(2028, 09, 05);
+      const landing = new Date(2030, 11, 16); // window opens; closes 19 Dec 2030
+
+      var daysUntilLaunch, daysUntilLaunchClose, daysUntilLanding;
       
       function startTime() {
         const today = new Date();
@@ -23,10 +30,7 @@
         m = checkTime(m);
         s = checkTime(s);
 
-        // nominal dates, backup EMM LW 8-28 Dec 28, land 15 Jul - 16 Aug 30
-        const launchwindowopen = new Date(2028, 09, 21);
-        const launchwindowclose = new Date(2028, 09, 05);
-        const landing = new Date(2030, 11, 16); // window opens; closes 19 Dec 2030
+        /// update times
         daysUntilLaunch = Math.floor((Date.UTC(launchwindowopen.getFullYear(), launchwindowopen.getMonth(), launchwindowopen.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
         daysUntilLaunchClose = Math.floor((Date.UTC(launchwindowclose.getFullYear(), launchwindowclose.getMonth(), launchwindowclose.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
         daysUntilLanding = Math.floor((Date.UTC(landing.getFullYear(), landing.getMonth(), landing.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / (1000 * 3600 * 24));
